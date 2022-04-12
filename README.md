@@ -67,9 +67,9 @@ sum(even([1, 2, 3, 4, 5]))
 Much easier, isn't it?
 
 # The app class (applicative)
-The app class is a wrapper for curryied functions to be partially applied with a custom syntax.
+The app class is a wrapper for curried functions to be partially applied with a custom syntax.
 
-To create an app function, just wrap it in the `app` class, just make sure to know, that this only works for curryied functions that have two or more levels of curry (Function needs atleast two arguments). You'll may have to wrap all function returns, except the last one. If you're still not sure what all of this means, let's take a look at some implementations:
+To create an app function, just wrap it in the `app` class, just make sure to know, that this only works for curried functions that have two or more levels of curry (Function needs atleast two arguments). You'll may have to wrap all function returns, except the last one. If you're still not sure what all of this means, let's take a look at some implementations:
 ```python
 # Boring function, with boring calling syntax.
 add = lambda a: lambda b: a + b
@@ -89,3 +89,4 @@ fn = fn_a& arg_a ^ fn_b& arg_b
 # The code above is the same as:
 fn = fn_a(arg_a, fn_b(arg_b))
 ```
+Easier to write, and easier to read.

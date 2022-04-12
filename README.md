@@ -3,7 +3,7 @@ The piper class is a wrapper class to facilitate the implementation of 'pipeable
 
 To implement your own pipeable functions, is a very easy process, just:
 ```python
-import pipe from pipe
+from pipe import pipe
 ```
 
 Then decorate your function with it `@pipe`:

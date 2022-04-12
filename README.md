@@ -40,6 +40,7 @@ def sum(elements):
     return result
 ```
 After adding the decorator, you may now use both forms of calling the function, as both will work:
+
 Pipe form:
 ```python
 [1, 2, 3, 4, 5] | sum # 15

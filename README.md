@@ -6,7 +6,7 @@ To implement your own pipeable functions, is a very easy process, just:
 from pipe import pipe
 ```
 
-Then decorate your function with it `@pipe`:
+Then decorate your function with `@pipe`:
 ```python
 @pipe
 def my_fun(...):
@@ -18,15 +18,15 @@ The only rule here is that the first argument will be the input of the pipe, suc
 ```
 You  may recognize this pattern, because it is the exact same thing as a class calling a method, which it's first argument is `self` (`method(self) == self.method()`).
 
-Now, if you still not sure how to use it, let's implement a simple sum function to add all elements of a list, the implementation is as it follows:
+Now, if you're still not sure how to use it, let's implement a simple sum function to add all elements of a list, the implementation is as it follows:
 ```python
 def sum(elements):
     result = 0
 	
-	for element in elements:
-	    result += element
-		
-	return result
+    for element in elements:
+	result += element
+    
+    return result
 ```
 Do you see how simple the implementation is? It is just a common sum function, like everybody would implement. The catch here, is that adding the `@pipe` decorator, let's you pass the first argument in a pipe form, so, let's do that:
 ```python
@@ -34,10 +34,10 @@ Do you see how simple the implementation is? It is just a common sum function, l
 def sum(elements):
     result = 0
 	
-	for element in elements:
-	    result += element
+    for element in elements:
+	result += element
 		
-	return result
+    return result
 ```
 After adding the decorator, you may now use both forms of calling the function, as both will work:
 Pipe form:

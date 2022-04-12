@@ -1,5 +1,5 @@
-# The piper class
-The piper class is a wrapper class to facilitate the implementation of 'pipeable' functions (a.k.a. `fn1 | fn2`, "Pass the output of 'fn1' to 'fn2'").
+# The pipe class
+The pipe class is a wrapper class to facilitate the implementation of 'pipeable' functions (a.k.a. `fn1 | fn2`, "Pass the output of 'fn1' to 'fn2'").
 
 To implement your own pipeable functions, is a very easy process, just:
 ```python
@@ -65,3 +65,27 @@ sum(even([1, 2, 3, 4, 5]))
 [1, 2, 3, 4, 5] | even | sum
 ```
 Much easier, isn't it?
+
+# The app class (applicative)
+The app class is a wrapper for curryied functions to be partially applied with a custom syntax.
+
+To create an app function, just wrap it in the `app` class, just make sure to know, that this only works for curryied functions that have two or more levels of curry (Function needs atleast two arguments). You'll may have to wrap all function returns, except the last one. If you're still not sure what all of this means, let's take a look at some implementations:
+```python
+# Boring function, with boring calling syntax.
+add = lambda a: lambda b: a + b
+
+# If you wish to partially apply this function, you'll do something like this:
+add_1 = add (1)
+
+# But now, with the app wrapper:
+add = app(lambda a: lambda b: a + b)
+
+# You may use this style of partially application, using the & symbol to feed in the argument:
+add_1 = add& 1
+
+# And if you need to feed in another function as argument, while you're feeding it also, use the ^ to feed the argument, instead of the &.
+fn = fn_a& arg_a ^ fn_b& arg_b
+
+# The code above is the same as:
+fn = fn_a(arg_a, fn_b(arg_b))
+```
